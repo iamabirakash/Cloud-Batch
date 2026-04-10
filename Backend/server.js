@@ -1,24 +1,23 @@
 const express = require('express');
-const path = require('path');
+const cors = require('cors');
 
 const app = express();
 const port = process.env.PORT || 3000;
 
-// Serve static files from the Frontend directory
-const frontendPath = path.join(__dirname, '../Frontend');
-app.use(express.static(frontendPath));
+// Enable CORS for all routes (so the Vercel frontend can access this backend)
+app.use(cors());
 
 // Middleware
 app.use(express.json());
 
 // A simple API endpoint
 app.get('/api/message', (req, res) => {
-    res.json({ message: 'Hello from your simple backend server! Mission Accomplished. 🚀' });
+    res.json({ message: 'Hello from your backend server running on EC2! 🚀' });
 });
 
-// For any other routes, send the main index.html file
-app.use((req, res) => {
-    res.sendFile(path.join(frontendPath, 'index.html'));
+// Basic health check for EC2
+app.use('/', (req, res) => {
+    res.send('Backend is running and accepting requests!');
 });
 
 app.listen(port, () => {

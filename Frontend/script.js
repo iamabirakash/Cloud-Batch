@@ -12,10 +12,11 @@ document.addEventListener('DOMContentLoaded', () => {
         fetchBtn.disabled = true;
         
         try {
-            // Add a small delay for demo purposes (so the visual change is apparent)
-            await new Promise(resolve => setTimeout(resolve, 600));
+            // ⚠️ IMPORTANT: When you deploy, change this to your EC2 instance's IP!
+            // Example: const BACKEND_URL = 'http://123.45.67.89:3000';
+            const BACKEND_URL = 'http://localhost:3000'; 
             
-            const response = await fetch('/api/message');
+            const response = await fetch(`${BACKEND_URL}/api/message`);
             const data = await response.json();
             
             // UI Success state
