@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antigravity App</title>
+    <meta name="description" content="A simple fullstack application featuring an aesthetic frontend built with HTML, CSS, JS, and a Node.js Express backend.">
+    <!-- Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="background-elements">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <main class="container">
+        <header class="hero">
+            <div class="badge">Next-Gen Stack</div>
+            <h1 class="title">Create <span class="gradient-text">Beautiful</span> Experiences</h1>
+            <p class="subtitle">A seamlessly crafted aesthetic frontend with a lightweight Node.js backbone.</p>
+        </header>
+
+        <section class="interactive-section">
+            <div class="glass-card">
+                <div class="card-header">
+                    <div class="status-indicator">
+                        <span class="pulsing-dot"></span>
+                        <span class="status-text text-sm">Server Connected</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h2 class="card-title">Test The Connection</h2>
+                    <p class="card-description">Initiate a request to your Express server and watch the response illuminate the interface.</p>
+                    <button id="fetch-btn" class="primary-button">
+                        <span class="button-content">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                            Fetch Data
+                        </span>
+                        <span class="button-loader hidden"></span>
+                    </button>
+                    
+                    <div id="response-container" class="response-container empty">
+                        <div class="response-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                        </div>
+                        <div class="response-content">
+                            <h3 class="response-label">System Response</h3>
+                            <p id="response-message" class="response-text">Waiting for interaction...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <script src="/script.js"></script>
+</body>
+</html>
