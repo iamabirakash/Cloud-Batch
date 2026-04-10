@@ -2,25 +2,19 @@ const express = require('express');
 const cors = require('cors');
 
 const app = express();
-const port = process.env.PORT || 3000;
-const host = '0.0.0.0';
+const PORT = 3000;
 
-// Enable CORS for all routes (so the Vercel frontend can access this backend)
 app.use(cors());
-
-// Middleware
 app.use(express.json());
 
-// A simple API endpoint
 app.get('/api/message', (req, res) => {
-    res.json({ message: 'Hello from your backend server running on EC2! 🚀' });
+  res.status(200).json({ message: 'Hello from EC2 backend' });
 });
 
-// Basic health check for EC2
-app.use('/', (req, res) => {
-    res.send('Backend is running and accepting requests!');
+app.get('/health', (req, res) => {
+  res.status(200).send('ok');
 });
 
-app.listen(port, host, () => {
-    console.log(`Server is running on http://${host}:${port}`);
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Server is running on http://0.0.0.0:${PORT}`);
 });
